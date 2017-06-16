@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app = "loadingApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>登录</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/loading.css" />
+	</head>
+	<body ng-controller = "loadingController" class="loading-body" style="display: none;">
+		<!--<div class="logo"><img src="img/my_icon.png"/></div>
+		<div class="tip">欢迎进入公司移动应用平台</div>
+		<div class="enter" ng-click = "onClickToLogin()">立即进入</div>
+		<div class="register-tip-cover" ng-show = "showTip"></div>
+		<div class="register-tip" ng-show = "showTip">
+			<div class="tip-title">首次安装提示</div>
+			<div class="tip-del-icon" ng-click = "onClickHide()"><img src="img/del.png"/></div>
+			<div class="tip-content">
+				久视智联为公司内部沟通唯一认可平台，
+				久视智联为长生久视公司内部使用沟通工具，
+				注册不成功，请与人力资源部联系
+			</div>
+			<div class="tip-back" ng-click = "onClickHide()">我知道了(<span ng-bind = "tipTime"></span>s)</div>
+		</div>-->
+		<div class="loading-ads">
+		</div>
+		<div class="loading-skip" ng-click = "onClickSkip()">跳过</div>
+		<div class="loading-footer">
+			<div class="loading-footer-content">
+				<img src="img/qunliao.png" />
+				<div class="loading-footer-text">
+					<p>企梦</p>
+					<p>为内部员工建立良好的沟通</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/loadingController.js" ></script>
+
+</html>

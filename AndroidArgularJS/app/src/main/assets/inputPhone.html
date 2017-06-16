@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app = "inputPhoneApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>输入手机号</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/inputPhone.css" />
+	</head>
+	<body ng-controller = "inputPhoneController" class="input-phone-body" style="display: none;">
+		
+		<!--<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="start-phone-num-bg" ng-show = "inputPhoneModel.showStartPhoneNumCountry" ng-click = "hideStartPhoneNum()"></div>
+		<div class="login-form">
+			<ul>
+				<li class="ub">
+					<p class="ub-f1 form-input" ng-bind = "staticBasicModel.countryArea">
+					</p>
+					<p class="ub-f1 form-lf" ng-bind = "inputPhoneModel.startPhoneNum" ng-click = "showStartPhoneNumCountry()"></p>
+					<p class="ub-f1 form-lf" ng-bind = "inputPhoneModel.country" ng-click = "showStartPhoneNumCountry()"></p>
+					<div class="start-phone-num" ng-show = "inputPhoneModel.showStartPhoneNumCountry">
+						<ul>
+							<li class="ub" ng-repeat = "item in staticBasicModel.startPhoneNumCountryArr" ng-click = "selectedStartPhoneNum($index)">
+								<p class="ub-f1" ng-bind = "item.startPhoneNum"></p>
+								<p class="ub-f1" ng-bind = "item.country"></p>
+							</li>
+						</ul>
+					</div>
+					<p class="down-arrow" ng-click = "showStartPhoneNumCountry()"><img ng-src = "{{staticBasicModel.rightArrow}}"/></p>
+				</li>
+				<li class="ub">
+					<p class="ub-f1 form-input" ng-bind = "staticBasicModel.phoneNum"></p>
+					<p class="ub-f1 form-input">
+						<input type="tel" placeholder="{{staticBasicModel.phoneTip}}" ng-model = "inputPhoneModel.phoneNum" ng-change = "checkPhoneNum(inputPhoneModel.phoneNum)" maxlength="11"
+							onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div style="margin-top: 25px;" class="btn-login" ng-class = "{true : 'btn-login', false : 'btn-login-disable'}[clickAble]" ng-click = "onClickNextStep($event)" ng-bind = "staticBasicModel.nextStep">
+		</div>
+		
+		<div class="register-tip-cover" ng-show = "showTip"></div>
+		<div class="register-tip" ng-show = "showTip">
+			<div class="tip-title">提示</div>
+			<div class="tip-del-icon" ng-click = "onClickHide()"><img src="img/del.png"/></div>
+			<div class="tip-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此应用为企业内部沟通唯一认可平台，仅限内部员工使用，若注册不成功，可与人力资源部联系。
+			</div>
+			<div class="tip-back" ng-click = "onClickBack()">关闭</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/inputPhoneController.js" ></script>
+</html>

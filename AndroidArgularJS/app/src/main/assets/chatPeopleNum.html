@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app = "chatPeopleNumApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>聊天人数</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+	</head>
+	<body ng-controller = "chatPeopleNumController" class="chat-people-body" style="display: none;">
+		
+		<!--<header class="ub" >
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="chat-people-num-container">
+			<div class="chat-people-num">
+				<ul>
+					<li ng-repeat = "item in chatPeopleNumList" ng-click = "toPersonalDetail(item.userId, item.icon, item.name,item.type)">
+						<div class="imgIcon" style="background-image: url({{item.icon}});"></div>
+						<p ng-bind = "item.name"></p>
+					</li>
+					<!--<li ng-click = "onClickAddFriend()">
+						<p><img ng-src = "{{staticBasicModel.addIcon}}"/></p>
+						<p ng-bind = "staticBasicModel.addName"></p>
+					</li>-->
+				</ul>
+			</div>
+			<div class=" ub gray-line" ng-show = "showModel.showChatRoomName"></div>
+			<div class="ub chat-room-detail" ng-click = "onClickToModChatRoomName()" ng-show = "showModel.showChatRoomName">
+				<div class="ub-f1">群聊名称</div>
+				<div class="ub-f2" ng-bind = "chatRoomName">群聊</div>
+			</div>
+			
+			<div class="chat-people-num-exit" ng-bind = "staticBasicModel.exitChatRoom" ng-click="onClickExit()"></div>
+			
+		</div>
+		
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/chatPeopleNumController.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmDialog.js"></script>
+	
+</html>

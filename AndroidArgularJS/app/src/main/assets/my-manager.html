@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app = "myManagerApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的(经理)</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "myManagerController">
+	<div class="app-container">
+		<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+			</div>
+			<div class="ub-f1 head-center-title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+				<img class="ub-f1" style="height: 30px;margin-top: 5px;" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>
+		<div class="personal-detail-container">
+			<div class="personal-icon-name my-bg">
+				<img ng-src = "{{staticBasicModel.myIcon}}" />
+				<p ng-bind = "staticBasicModel.myName"></p>
+			</div>
+			
+			<div class="personal-contact-ways my-detail">
+				<ul>
+					<li class="ub" ng-click="onClickMyInfo()">
+						<p class="ub-f1"><img src="img/my1.png"/></p>
+						<p class="ub-f1">我的信息</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click="onClickMySalary()">
+						<p class="ub-f1"><img src="img/my2.png"/></p>
+						<p class="ub-f1">我的薪资</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my3.png"/></p>
+						<p class="ub-f1">个人考勤</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my4.png"/></p>
+						<p class="ub-f1">部门考勤</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my5.png"/></p>
+						<p class="ub-f1">我的团队</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my6.png"/></p>
+						<p class="ub-f1">我的申请</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my8.png"/></p>
+						<p class="ub-f1">我的审批</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my9.png"/></p>
+						<p class="ub-f1">我的邮件</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my10.png"/></p>
+						<p class="ub-f1">我的活动</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my11.png"/></p>
+						<p class="ub-f1">我的消费</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my12.png"/></p>
+						<p class="ub-f1">我的提醒</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src="img/my13.png"/></p>
+						<p class="ub-f1">移动空间</p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<footer>
+			<ul class="ub">
+				<li class="ub-f1" ng-repeat = "item in footerMenuList" ng-click = "onClickFooterMenu(item.type)">
+					<img ng-src = "{{item.icon}}" ng-show = "!item.selected"/>
+					<img ng-src = "{{item.clickIcon}}" ng-show = "item.selected"/>
+					<p ng-bind = "item.title" ng-class = "item.active"></p>
+				</li>
+			</ul>
+		</footer>
+	</div>	
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/footerController.js" ></script>
+	<script type="text/javascript" src="controller/myManagerController.js" ></script>
+	
+</html>

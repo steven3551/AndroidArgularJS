@@ -1,0 +1,259 @@
+/*
+ * 我的
+ */
+
+.my-bg{
+	position: relative;
+    width: 100%;
+    height: auto;
+    background: url(../img/my_bg.png) no-repeat;
+    background-size: cover;
+}
+
+.my-detail,.my-commonInfo{
+	margin-top: 0px;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+}
+
+.my-commonInfo ul {
+	list-style: none;
+}
+.my-commonInfo ul li {
+	height: 41px;
+	line-height: 41px;
+	border-bottom: 1px solid #EFEFF4;
+}
+.my-commonInfo ul li img {
+	width: auto;
+	height: 30px;
+	margin: 5px 8px;
+}
+.my-commonInfo ul li p {
+	color: rgb(102,102,102);
+	font-size: 16px;
+	display: block;
+	padding-right: 0px;
+	margin-right: 0px;
+}
+.my-commonInfo ul li p:first-child {
+	min-width: 120px !important;
+	max-width: 120px !important;
+	/*padding-left: 20px;*/
+	margin-left: 15px;
+	/*text-align: right;*/
+}
+
+.edu-ul li p:first-child{
+	max-width: 115px !important;
+	padding-left: 0px;
+}
+
+
+
+
+.my-salary-switch{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 999;
+}
+.my-salary-check{
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	height: 40px;
+}
+.my-salary-check div{
+	float: left;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.my-salary-check-pActive{
+	margin-left: auto;
+	margin-right: auto;
+	width: 64px;
+	color: #41B6D5;
+	border-bottom: 1px solid #41B6D5;
+}
+.my-search-btn{
+	height: 60px;
+	background-color: #fff;
+	text-align: center;
+}
+.my-search-btn div{
+	width: 50%;
+	float: left;
+	height: 100%;
+}
+.my-search-btn a{
+	text-align: center;
+	background-color: #41B6D5;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	display: block;
+    width: 140px;
+    margin-top: 11px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.my-salaryInfo{
+	background-color: #fff;
+	margin-top: 10px;
+	height: 280px;
+	overflow: auto;
+	/*position: absolute;*/
+	/*top: 140px;
+	left: 0px;
+	width: 100vw;
+	height: auto !important;*/
+}
+.my-salary-fixed {
+	position: fixed;
+	top: 140px;
+	left: 0px;
+	width: 100vw;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.my-salary-date{
+	float: left;
+	width: 25%;
+	text-align: center;
+	padding-top: 122px;
+}
+.my-salary-detail{
+	float: left;
+	width: 75%;
+}
+.my-salary-detail div{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #eee;
+}
+.my-salary-detail div p:first-child{
+	width: 70%;
+	float: left;
+}
+.my-salary-detail div p:last-child{
+	width: 30%;
+	float: left;
+	color: #41B6D5;
+}
+
+
+
+.my-salaryYearInfo{
+	margin-top: 50px;
+}
+.my-salary-year{
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.salary-year-head{
+	height: 60px;
+	border-bottom: 1px solid #eee;
+}
+.salary-year-head p{
+	float: left;
+	height: 60px;
+	line-height: 60px;
+}
+.salary-year-head p:first-child{
+	width: 45%;
+	padding-left: 5%;
+}
+.salary-year-head p:last-child{
+	float: right;
+	margin-right: 5%;
+}
+.salary-year-head img{
+	width: 20px;
+	vertical-align: middle;
+}
+
+.salary-year-month{
+	height: 60px;
+	border-bottom: 1px solid #eee;
+}
+.salary-year-month p{
+	float: left;
+	width: 50%;
+	line-height: 60px;
+}
+.salary-year-month p:first-child{
+	padding-left: 10%;
+}
+.salary-year-month p:last-child{
+	padding-left: 16%;
+}
+
+
+.my-salary-check-title{
+	/*position: fixed;
+	top: 0px;
+	left: 0px;*/
+	background-color: #fff;
+    border-bottom: 1px solid #eee;
+    height: 40px;
+    padding-left: 5%;
+}
+.my-salary-check-title p{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+}
+
+.my-salary-check-no img{
+	width: 100%;
+	display: block;
+}
+.my-salary-check-no-search {
+	width: 100%;
+	height: 100%;
+	padding-top: 100px;
+}
+
+.my-salary-check-no-search2 {
+	width: 100%;
+	height: 100%;
+	padding-top: 0px;
+}
+
+.my-salary-check-no-search img{
+	width: 100%;
+	/*height: 100%;*/
+	display: block;
+}
+.my-salary-check-no-search2 img{
+	width: 100%;
+	/*height: 100%;*/
+	display: block;
+}
+
+.index-check-no-search {
+	width: 100%;
+	height: 100%;
+}
+
+.index-check-no-search img{
+	width: 100%;
+	display: block;
+}
+
+.my-detail ul li p:last-child img {
+	height: 30px;
+	padding: 5px;
+	margin-top: 10px;
+}
+.personal-enterprise-info ul li p:last-child img {
+	height: 30px;
+	padding: 5px;
+	margin-top: 10px;
+}

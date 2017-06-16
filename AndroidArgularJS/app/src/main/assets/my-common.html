@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html ng-app = "myCommonApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+		
+	</head>
+	<body ng-controller = "myCommonController" class="all-container" style="display: none;">
+		<!--<header class="ub" >
+			<div class="ub-f1 left ub" ng-click = "back()">
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1">我的</p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+			</div>
+		</header>-->
+		<div class="personal-detail-container">
+			<div class="personal-icon-name my-bg">
+				<!--style="background-image: url({{myIcon}});" -->
+				<div class="personal-icon-div" ng-click = "onClickChangeHeadIcon()" style="background-image: url({{myIcon}});"></div>
+				<!--<img ng-src = "{{myIcon}}" ng-click = "onClickChangeHeadIcon()"/>-->
+				<p ng-bind = "myName" ></p>
+			</div>
+			
+			<div class="personal-contact-ways my-detail">
+				<ul>
+					<li class="ub" ng-click="onClickMyInfo()" ng-show = "myFunList[0].isShow">
+						<p class="ub-f1"><img src="img/my1.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[0].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click="onClickMySalary()" ng-show = "myFunList[2].isShow">
+						<p class="ub-f1"><img src="img/my2.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[2].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[1].isShow">
+						<p class="ub-f1"><img src="img/my3.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[1].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[6].isShow">
+						<p class="ub-f1"><img src="img/my4.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[6].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[10].isShow">
+						<p class="ub-f1"><img src="img/my5.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[10].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[3].isShow">
+						<p class="ub-f1"><img src="img/my6.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[3].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[5].isShow">
+						<p class="ub-f1"><img src="img/my8.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[5].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[4].isShow">
+						<p class="ub-f1"><img src="img/my9.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[4].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[7].isShow">
+						<p class="ub-f1"><img src="img/my10.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[7].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[8].isShow">
+						<p class="ub-f1"><img src="img/my11.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[8].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[9].isShow">
+						<p class="ub-f1"><img src="img/my12.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[9].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+					<li class="ub" ng-click = "onClickOthers()" ng-show = "myFunList[11].isShow">
+						<p class="ub-f1"><img src="img/my13.png"/></p>
+						<p class="ub-f1" ng-bind = "myFunList[11].name"></p>
+						<img src="img/right_arrow.png" style="height: 20px;vertical-align: middle;" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="popUp-bg my-popUp-bg" ng-show = "showModel.showDialog" ng-click = "onClickCloseDialog()"></div>
+		<div class="popUp-container2 my-popUp-container" ng-show = "showModel.showDialog">
+			<div class="popUp-top">提示</div>
+			<img class="popUp-top-hide" src="img/top_close.png" ng-click = "onClickCloseDialog()"/>
+			<div class="popUp-tip2">查询工资，需要进行验证，请选择下方的验证方式进行验证</div>
+			<div class="popUp-select-container">
+				<a class="popUp-select-gesture" ng-class = "{true : 'popUp-selected-type', false : ''}[showModel.showGesture]" ng-click = "onClickSelectGesture()">手势密码</a>
+				<a class="popUp-select-codes" ng-class = "{true : '', false : 'popUp-selected-type'}[showModel.showGesture]" ng-click = "onClickSelectCodes()">手机验证码</a>
+			</div>
+			<div class="popUp-selected-gesture-container" ng-show = "showModel.showGesture">
+				<div class="gesture-tip-div" ng-bind = "gestureTip" ng-class = "gestureClass"></div>
+				<h4 id="title" class="title" style="display: none;">绘制解锁图案</h4>
+				<a id="updatePassword" style="position: absolute;right: 5px;top: 5px;color:#fff;font-size: 10px;display:none;">重置密码</a>
+				<canvas id="canvas" ></canvas>
+			</div>
+			<div class="popUp-selected-codes-container" ng-show = "!showModel.showGesture">
+				<input class="popUp-codes" type="text" placeholder="请输入验证码" ng-model = "inputCodes"/>
+				<div class="popUp-get-codes" ng-click = "onClickGetCodes()" ng-disabled = "reSendDisAble" >获取验证码(<span ng-bind = "reSendTime">60</span>)</div>
+				<div class="popUp-confirm-codes-container">
+					<a class="popUp-confirm-codes-cancel" ng-click = "onClickCloseDialog()">取消</a>
+					<a class="popUp-confirm-codes-sure" ng-click = "onClickConfirmCodes()">确定</a>
+				</div>
+			</div>
+		</div>
+		
+		<!--<div class="popUp-bg" ng-show = "showModel.showModNickname" ng-click = "onClickModNicknameDialog()"></div>
+		<div class="popUp-container2" ng-show = "showModel.showModNickname">
+			<div class="popUp-top">修改昵称</div>
+			<div class="popUp-tip2" ng-bind = "myName"></div>
+			<input class="popUp-nickname" type="text" placeholder="请输入新的昵称" ng-model = "inputNickname" maxlength="12"/>
+			<div class="popUp-confirm-codes-container">
+				<a class="popUp-confirm-codes-cancel" ng-click = "onClickModNicknameDialog()">取消</a>
+				<a class="popUp-confirm-codes-sure" ng-click = "onClickModNickname()">确定</a>
+			</div>
+		</div>-->
+						
+					<!--my-commont  -->
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="popUpModal/codesDialog.js" ></script>
+	<script type="text/javascript" src="popUpModal/cameraDialog.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="plugin/H5lock.js"></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<!--<script type="text/javascript" src="controller/footerController.js" ></script>-->
+	<script type="text/javascript" src="controller/myCommonController.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmTip.js" ></script>
+	
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app = "indexAndContactRightPopModalApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>登录</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body ng-controller = "indexAndContactRightPopModalController" id="index-contact-right-pop-modal">
+		<div class="index-right-dialog-bg" ng-click = "onClickIndexHideDialog()"></div>
+		<div class="index-right-dialog">
+			<div class="dialog-start-chat-room" ng-click = "onClickIndexToStartChatRoom()"><img src="img/startChatRoom.png" /><p>发起群聊</p></div>
+			<div class="dialog-add-friend" ng-click = "onClickIndexToAddFriend()"><img src="img/addFriends.png" /><p>关注朋友</p></div>
+		</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/indexAndContactRightPopModalController.js" ></script>
+
+</html>

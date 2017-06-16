@@ -1,0 +1,129 @@
+body {
+	text-align: center;
+	background-color: white !important;
+}
+.gesture-logo {
+	position: fixed !important;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: auto;
+	/*margin-top: 40px;*/
+}
+.gesture-logo-img {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	margin: auto;
+	width: 28vw;
+	height: 28vw;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 50%;
+	border: 1px solid #00BFFF;
+	margin-top: 7vw;
+}
+/*.gesture-logo img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin: 5px auto;
+	border: 1px solid #00BFFF;
+}*/
+.gesture-show-phone {
+	width: 100vw;
+	height: 10vw;
+	line-height: 10vw;
+	font-size: 16px;
+}
+.gesture-show-phone p:first-child{
+	text-align: right;
+}
+.gesture-show-phone P:last-child{
+	text-align: left;
+}
+.gesture-container {
+	position: fixed !important;
+	top: 55vw;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+}
+
+.gesture-footer {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100vw;
+	height: 48px;
+	line-height: 48px;
+	text-align: right;
+	padding-right: 20px;
+	font-size: 16px;
+	color: #000000;
+	background-color: #EFEFF4;
+	
+}
+
+#canvas{
+	background-color: white;
+	display: block;
+	margin: auto;
+	width: 100%;
+	margin-top: 20px;
+	/*width: 300px;
+	height: 300px;*/
+	/*max-height: 300 !important;*/
+}
+
+
+/*@media only screen and (min-width: 320px) { 
+	#canvas{
+		width: 320px !important;
+		height: 320px !important;
+		}
+}
+@media only screen and (min-width: 375px) { 
+	#canvas{
+		width: 350px !important;
+		height: 350px !important;
+		}
+}
+@media only screen and (min-width: 414px) { 
+	#canvas{
+		width: 380px !important;
+		height: 380px !important;
+		}
+}
+@media only screen and (min-width: 768px) { 
+	#canvas{
+		width: 740px !important;
+		height: 740px !important;
+		}
+}*/
+
+.active {
+	height: 10vw;
+	color: #22C3AA;
+	padding: 5px;
+}
+.no-active {
+	height: 10vw;
+	color: red;
+	padding: 5px;
+}
+
+.setting-gesture-footer {
+	position: fixed !important;
+	left: 0px;
+	bottom: 0px;
+	width: 100vw;
+	height: 48px;
+	line-height: 48px;
+	text-align: right;
+	padding-right: 20px;
+	font-size: 16px;
+	color: #000000;
+	background-color: #EFEFF4;
+}

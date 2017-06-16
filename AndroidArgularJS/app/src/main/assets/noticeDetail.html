@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app = "noticeDetailApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>企业新闻</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body ng-controller = "noticeDetailController" class="notice-detail-body" style="display: none;">
+		
+		<!--<header class="ub" >
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<p class="ub-f1 chat-people-count" ng-bind = "chatPeopleNum"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="news-detail-container" >
+			<!--<p class="news-detail-title-color" ng-bind = "noticeDetail.title"></p>
+			<div class="ub news-detail-time-department">
+				<p class="ub-f1 time-color" ng-bind = "noticeDetail.time"></p>
+				<p class="ub-f1 news-detail-department" ng-bind = "noticeDetail.department"></p>
+			</div>
+			<img ng-src = "{{noticeDetail.icon}}"/>
+			<p class="time-color" ng-bind = "noticeDetail.content"></p>-->
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/noticeDetailController.js" ></script>
+</html>

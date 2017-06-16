@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app = "personalDetailApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>个人信息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+	</head>
+	<body ng-controller = "personalDetailController" class="personal-detail-body" style="display: none;">
+		
+		<!--<header class="ub" ng-class = "headerModel.headerStyle">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		<div class="personal-detail-container">
+			<div class="personal-icon-name">
+				<div class="personal-icon-div" style="background-image: url({{personalDetailModel.personalIcon}});"></div>
+				<!--<img ng-src = "{{personalDetailModel.personalIcon}}"/>-->
+				<p ng-bind = "personalDetailModel.personalName"></p>
+			</div>
+			<div class="personal-detail-chat" ng-show = "showModel.showChatAndFollow">
+				<ul class="ub">
+					<li class="ub-f1 ub" ng-click = "onClickToChat()">
+						<div class="ub-f1"><img  ng-src = "{{staticBasicModel.chatLeftIcon}}"/></div>
+						<div class="ub-f1" ng-bind = "staticBasicModel.chatLeftTitle"></div>
+					</li>
+					<p class="white-line"></p>
+					<li class="ub-f1 ub" ng-click = "onClickFollow()">
+						<div class="ub-f1"><img  ng-src = "{{staticBasicModel.followRightIcon}}"/></div>
+						<div class="ub-f1" ng-bind = "staticBasicModel.followRightTitle"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="personal-contact-ways">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1"><img src = "img/shouji.png"/></p>
+						<p class="ub-f1">手机号</p>
+						<p class="ub-f2" ng-bind = "userInfo.mobilePhone" ng-click = "onClickToCallMobilePhone()"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src = "img/dianhua.png"/></p>
+						<p class="ub-f1">电话</p>
+						<p class="ub-f2" ng-bind = "userInfo.phone" ng-click = "onClickToCallPhone()"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src = "img/youxiang.png"/></p>
+						<p class="ub-f1">邮箱</p>
+						<p class="ub-f2" ng-bind = "userInfo.email"></p>
+					</li>
+				</ul>
+			</div>
+			<div class="personal-enterprise-info">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1"><img src = "img/gonghao.png"/></p>
+						<p class="ub-f1" >工号</p>
+						<p class="ub-f2" ng-bind = "userInfo.staffCode"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1"><img src = "img/bumen.png"/></p>
+						<p class="ub-f1" >部门</p>
+						<p class="ub-f2" ng-bind = "userInfo.sectionName"></p>
+					</li>
+					<li class="ub" style="height: auto !important;">
+						<p class="ub-f1" style="height: 49px;"><img src = "img/jigou.png"/></p>
+						<p class="ub-f1" style="min-width: 45px;height: 49px;">机构</p>
+						<div class="ub-f2" style="height: auto !important;text-align: right;">
+							<div class="long-info" ng-bind = "userInfo.companyName"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--<div class="ub personal-company">
+				<p class="ub-f1" style="min-width: 60px;"><img src = "img/jigou.png"/></p>
+				<p class="ub-f1" style="min-width: 50px;">机构</p>
+				<p class="ub-f2 long-info" ng-bind = "userInfo.companyName"></p>
+			</div>-->
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/personalDetailController.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmTip.js" ></script>
+	<script type="text/javascript" src="popUpModal/callPhone.js" ></script>
+	
+</html>

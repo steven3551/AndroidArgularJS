@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app = "chatRoomListApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>群聊列表</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "chatRoomListController" class="chat-room-body" style="display: none;">
+		
+		<!--<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" src="img/top_back.png" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+			</div>
+		</header>-->
+		
+		<!--<div class="search-fixed-container">
+			<div class="ub search" ng-click="onClickSearch()" ng-show = "!showModel.showSearchInput">
+				<p class="ub-f1 search-icon"><img ng-src = "{{staticBasicModel.searchIcon}}" src="img/search.png"/></p>
+				<p class="ub-f1 search-tip">搜索</p>
+			</div>
+			<div class=" search" ng-show = "showModel.showSearchInput">
+				<p class="search-input"><input id="chat-room-list" type="text" placeholder="搜索" ng-model = "searchName" ng-change = "searchFriend(searchName)"/></p>
+				<p class="delete-icon" ng-click = "onClickDelete()" ng-show = "showModel.showDeleteIcon"><img src = "img/x.png"/></p>
+			</div>
+		</div>-->
+		
+		<div class="add-friend-container">
+			
+			<div class="msg-list">
+				<!--群聊  List-->
+				<ul>
+					<li class="ub" ng-repeat = "item in chatRoomList" ng-click="chatRoomDetail(item.groupid)">
+						<img class="ub-f1" ng-src="{{item.icon}}" />
+						<div class="ub-f3 contact-title">
+							<p class="contact-people" ng-bind="item.groupname"></p>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="index-check-no-search" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/chatRoomListController.js"></script>
+	
+</html>

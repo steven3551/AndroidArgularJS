@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app = "contactApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>通讯录</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "contactController" class="all-container" style="display: none;">
+		<!--<header class="ub">
+			<div class="ub-f1 left ub">
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1">通讯录</p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+				<img class="ub-f1" style="height: 28px;margin-top: 5px;" src = "img/add.png" ng-click = "contactRightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="search-fixed-contact-container">
+			<!--<div class="search">
+				<p class="search-input"><input type="text" placeholder="根据部门,邮箱,手机号,电话号码进行搜索" ng-model = "searchName" ng-change = "searchFriend(searchName)"/></p>
+				<p class="delete-icon" ng-click = "onClickDelete()"><img ng-src = "{{searchOrDelIcon}}"/></p>
+			</div>-->
+			<div class="msg-list-contact">
+				<ul>
+					<li class="ub" ng-click = "onClickAddFriends()"> 
+						<img class="ub-f1" src="img/suoyouren.png" />
+						<div class="ub-f3 contact-title">
+							<p>所有人</p>
+						</div>
+					</li>
+					<li class="ub" ng-click="chatRoomList()" >
+						<img class="ub-f1" src="img/qunliao.png" />
+						<div class="ub-f3 contact-title">
+							<p>群聊</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="contact-container">
+			<div class="msg-list-contact">
+				<!--<ul>
+					<li class="ub" ng-click = "onClickAddFriends()"> 
+						<img class="ub-f1" src="img/suoyouren.png" />
+						<div class="ub-f3 contact-title">
+							<p>所有人</p>
+						</div>
+					</li>
+					<li class="ub" ng-click="chatRoomList()" >
+						<img class="ub-f1" src="img/qunliao.png" />
+						<div class="ub-f3 contact-title">
+							<p>群聊</p>
+						</div>
+					</li>
+				</ul>-->
+				<ul>
+					<div ng-repeat = "item in contactList">
+						<p class="contact-nav-title-head-letter" ng-bind = "item.headLetter" id="{{item.headLetter}}" ng-show = "showModel.showHeadLetter"></p>
+						<li class="ub" ng-repeat = "item2 in item.contactPeopleList2" ng-click = "onClickPeopleDetail(item.headLetter, $index)" >
+							<img class="ub-f1" ng-src="{{item2.icon}}" />
+							<div class="ub-f3 contact-title">
+								<p class="contact-people" ng-bind = "item2.name"></p>
+							</div>
+						</li>
+					</div>
+				</ul>
+			</div>
+			
+			<!--未找到-->
+			<div class="index-check-no-search" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+			
+		</div>
+		
+		<div class="nav-letter" ng-show = "showModel.showHeadLetter">
+			<ul>
+				<li ng-repeat = "item in contactList">
+					<a href="{{item.anchorId}}"><p ng-bind = "item.headLetter"></p></a>
+				</li>
+			</ul>
+		</div>
+			
+		<!--contact  end-->
+		<!--<div class="index-right-dialog-bg" ng-show = "showModel.showContactRightDialogBg" ng-click = "onClickContactHideDialog()"></div>
+		<div class="index-right-dialog" ng-show = "showModel.showContactRightDialog">
+			<div class="dialog-start-chat-room" ng-click = "onClickContactToStartChatRoom()"><img src="img/startChatRoom.png" /><p>发起群聊</p></div>
+			<div class="dialog-add-friend" ng-click = "onClickContactToAddFriend()"><img src="img/addFriends.png" /><p>关注朋友</p></div>
+		</div>-->
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/contactController.js" ></script>
+</html>

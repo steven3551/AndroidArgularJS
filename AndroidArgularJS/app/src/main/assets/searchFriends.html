@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app = "searchFriendApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>搜索朋友</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+	</head>
+	<body ng-controller = "searchFriendController" class="search-friend-body" style="background-color: white !important; display: none;">
+		
+		<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" src="img/top_back.png" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle">添加朋友</p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+			</div>
+		</header>
+		
+		<div class="search-fixed-container">
+			<div class=" search">
+				<p class="search-input"><input type="text" placeholder="搜索" ng-model = "searchName" ng-change = "searchFriend(searchName)"/></p>
+				<p class="delete-icon" ng-click = "onClickDelete()" ng-show = "showDeleteIcon"><img ng-src = "{{staticBasicModel.deleteIcon}}"/></p>
+			</div>
+		</div>
+		
+		<div class="add-friend-container">
+			
+			<div class="search-empty-container" ng-show="emptySearch">
+				<div class="search-empty-line"></div><span>在这里可以搜索到</span>
+				<div class="search-empty-block">
+					<div>
+						<img src="img/search-result1.png" />
+						<p>联系人</p>
+					</div>
+					<div>
+						<img src="img/search-result2.png" />
+						<p>群组</p>
+					</div>
+					<div>
+						<img src="img/search-result3.png" />
+						<p>聊天消息</p>
+					</div>
+					<div>
+						<img src="img/search-result4.png" />
+						<p>邮件</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="msg-list" ng-show="!emptySearch">
+				<!--通讯录  form-->
+				<ul>
+					<div ng-repeat = "item in searchFriendList">
+						<li class="ub" ng-repeat = "item2 in item.friendList2" >
+							<img class="ub-f1" ng-src="{{item2.leftIcon}}" ng-click = "onClickPeopleDetail()"/>
+							<div class="ub-f3 contact-title">
+								<p class="contact-people" ng-bind = "item2.name" ng-click = "onClickPeopleDetail()"></p>
+								<a ng-class="item2.active" ng-bind = "item2.text" ng-show = "item2.isFollowed" ng-click = "onClickFollow(item.headLetter, $index)">已关注</a>
+								<a ng-class="item2.noactive" ng-bind = "item2.notext" ng-show = "!item2.isFollowed" ng-click = "onClickFollow(item.headLetter, $index)">已关注</a>
+							</div>
+						</li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmTip.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="plugin/pinyin.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/searchFriendController.js"></script>
+	
+</html>

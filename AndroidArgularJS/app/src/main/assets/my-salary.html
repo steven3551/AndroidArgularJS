@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html ng-app = "mySalaryApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的薪资</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+	</head>
+	<body ng-controller = "mySalaryController" class="my-salary-body" style="display: none;">
+		
+		<!--<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+			</div>
+			<div class="ub-f1 head-center-title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle"></p>
+				<img class="ub-f1" style="height: 30px;margin-top: 5px;" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		<div class="personal-detail-container">
+			<div class="my-salary-switch">
+				<div class="my-salary-check">
+					<div ng-click="salaryForNow()">
+						<p ng-class="{true:'',false:'my-salary-check-pActive'}[switchSalary]">当前年度</p>
+					</div>
+					<div ng-click="salaryForYear()">
+						<p ng-class="{true:'my-salary-check-pActive',false:''}[switchSalary]">年度汇总</p>
+					</div>
+				</div>
+				<div class="my-search-btn" ng-show="!switchSalary">
+					<div><a ng-click = "onClickToShowDateDialog()">选择查询时间</a></div>
+					<div><a ng-click="onClickSearch()">立即查询</a></div>
+				</div>
+			</div>
+			
+			<!--未找到-->
+			<div class="my-salary-check-no-search" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+			
+			<!--未找到-->
+			<div class="my-salary-check-no-search2" ng-show = "emptySearch2">
+				<img src="img/searchEmpty.png" />
+			</div>
+			
+			<!--年度汇总-->
+			<div class="my-salaryYearInfo" ng-show="switchSalary">
+				<div class="my-salary-year" ng-repeat = "item in salaryYearList">
+					<div class="salary-year-head" ng-click="salaryDetailShow(item.salaryYearId)">
+						<p ng-bind="item.salaryYear"></p>
+						<p>实发合计：</p>
+						<p style="color: #41B6D5;" ng-bind="item.salaryTotal"></p>
+						<p><img ng-src="{{item.salaryMonthArrow}}" /></p>
+					</div>
+					<div ng-show="item.salaryMonthDetail">
+						<div class="salary-year-month" ng-repeat = "item2 in item.salaryMonth">
+							<p ng-bind="item2.month"></p>
+							<p style="color: #41B6D5;" ng-bind="item2.salary"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<!--当前年度-->
+			<div style="padding-top: 100px;" >
+				<div class="my-salaryInfo" ng-repeat = "item in mySalaryList" ng-show="!switchSalary">
+						<div class="my-salary-date">
+							<p ng-bind="item.monthText"></p>
+							<p ng-bind="item.yearText"></p>
+						</div>
+						
+						<div class="my-salary-detail">
+							<div>
+								<p>应发合计</p>
+								<p ng-bind="item.totalSalaryPayable"></p>
+							</div>
+							<div>
+								<p>个人所得税</p>
+								<p ng-bind="item.individualIncomeTax"></p>
+							</div>
+							<div>
+								<p>扣款合计</p>
+								<p ng-bind="item.totalWithhold"></p>
+							</div>
+							<div>
+								<p>实发合计</p>
+								<p ng-bind="item.totalActualSalary"></p>
+							</div>
+							<div>
+								<p>养老</p>
+								<p ng-bind="item.pensionInsurance"></p>
+							</div>
+							<div>
+								<p>失业</p>
+								<p ng-bind="item.unemploymentInsurance"></p>
+							</div>
+							<div>
+								<p>医疗</p>
+								<p ng-bind="item.medicalinsurance"></p>
+							</div>
+							<!--<div>
+								<p>五险一金</p>
+								<p ng-bind="item.insuranceHouseFound"></p>
+							</div>-->
+						</div>
+				</div>
+			</div>
+			
+			
+			
+		</div>
+		<!--按时间查询弹窗-->
+		<div class="popUp-bg" ng-click = "onClickToCloseDateDialog()" ng-show = "showDateDialog"></div>
+		<!--<div class="popUp-date-cover" ng-show = "showDateDialog">
+			<div class="date-cover-start-year"></div>
+			<div class="date-cover-start-month"></div>
+			<div class="date-cover-end-year"></div>
+			<div class="date-cover-end-month"></div>
+		</div>-->
+		<div class="popUp-date-container" ng-show = "showDateDialog">
+			<div class="popUp-date-top">选择查询区间</div>
+			<div class="date-container">
+				<div class="start-date-container">
+					<div class="start-date-title">选择开始时间</div>
+					<div class="swiper-container start-date-year">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" ng-repeat = "item in startYearList" on-finish-render-filters ng-bind = "item.year" ng-class = "item.hasclass"></div>
+						</div>
+					</div>
+					<div class="swiper-container start-date-month">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" ng-repeat = "item in startMonthList" on-finish-render-filters ng-bind = "item.month" ng-class = "item.hasclass"></div>
+						</div>
+					</div>
+				</div>
+				<div class="end-date-container">
+					<div class="end-date-title">选择结束时间</div>
+					<div class="swiper-container end-date-year">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" ng-repeat = "item in endYearList" on-finish-render-filters ng-bind = "item.year" ng-class = "item.hasclass"></div>
+						</div>
+					</div>
+					<div class="swiper-container end-date-month">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" ng-repeat = "item in endMonthList" on-finish-render-filters ng-bind = "item.month" ng-class = "item.hasclass"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="date-confirm" ng-show = "showDateDialog">
+				<div class="date-cancel" ng-click = "onClickDateCancel()">取消</div>
+				<div class="date-sure" ng-click = "onClickDateSure()">确定</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="plugin/swiper.min.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmTip.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<!--<script type="text/javascript" src="controller/dateController.js" ></script>-->
+	<script type="text/javascript" src="controller/mySalaryController.js"></script>
+	<!--<script type="text/javascript" src="controller/mySalaryYearController.js"></script>-->
+	
+</html>

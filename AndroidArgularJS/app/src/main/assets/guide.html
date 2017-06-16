@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app = "guideApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>登录</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<link rel="stylesheet" href="css/loading.css" />
+	</head>
+	<body ng-controller = "guideController">
+		
+		<div class="swiper-container loading-guide">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<!--<div class="guide-img" style="background-image: url(img/guide1.jpg);"></div>-->
+		        	<img src="img/guide1.jpg"/>
+		        </div>
+		        <div class="swiper-slide">
+		        	<!--<div class="guide-img" style="background-image: url(img/guide2.jpg);"></div>-->
+		        	<img src="img/guide2.jpg"/>
+		        </div>
+		        <div class="swiper-slide">
+		        	<!--<div class="guide-img" style="background-image: url(img/guide3.jpg);"></div>-->
+		        	<img src="img/guide3.jpg"/>
+		        </div>
+		        <div class="swiper-slide">
+		        	<!--<div class="guide-img" style="background-image: url(img/guide4.jpg);"></div>-->
+		        	<img src="img/guide4.jpg"/>
+		        	<div class="enter" ng-click = "onClickToLogin()">立即进入</div>
+					
+		        </div>
+		    </div>
+		    <div class="swiper-pagination"></div>
+		</div>
+		<div class="register-tip-cover" ng-show = "showTip"></div>
+		<div class="register-tip" ng-show = "showTip">
+			<div class="tip-title">首次安装提示</div>
+			<!--<div class="tip-del-icon" ng-click = "onClickHide()"><img src="img/del.png"/></div>-->
+			<div class="tip-content">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此应用为企业内部沟通唯一认可平台，仅限内部员工使用，若注册不成功，可与人力资源部联系。
+			</div>
+			<div class="tip-back" ng-click = "onClickToNext()">我知道了</div>
+		</div>
+		<div class="loading-skip" ng-click = "onClickSkip()">跳过</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="plugin/swiper.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/guideController.js" ></script>
+
+</html>

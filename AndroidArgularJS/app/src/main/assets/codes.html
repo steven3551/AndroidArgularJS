@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app = "codesApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>填写验证码</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/inputPhone.css" />
+	</head>
+	<body ng-controller = "codesController" class="codes-body" style="display: none;">
+		
+		<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>
+		
+		<div class="ub reg-phone">
+			<p class="ub-f1 phone-tip-color" ng-bind = "staticBasicModel.phoneTip"></p>
+			<p class="ub-f1 codes-start-phone-num" ng-bind = "codesModel.startPhoneNum"></p>
+			<p class="ub-f1 codes-phone-num" ng-bind = "codesModel.phoneNum"></p>
+		</div>
+		
+		<div class="codes-input">
+			<input type="tel" id="codes1" maxlength="4" ng-model = "inputCodes" ng-change = "checkInputCodes(inputCodes)" autofocus="autofocus" ng-click = "onClickInput($event)"/>
+		</div>
+		<div class="codes-cover"></div>
+		<div class="code_block">
+			<ul class="ub code_num">
+				<li ng-bind = "codesModel.codes[0]">
+				</li>
+				<li ng-bind = "codesModel.codes[1]">
+				</li>
+				<li ng-bind = "codesModel.codes[2]">
+				</li>
+				<li ng-bind = "codesModel.codes[3]">
+				</li>
+			</ul>
+		</div>
+		
+		<div class="btn-reg-next" ng-class = "{true : 'btn-reg-next', false : 'btn-reg-next-no'}[clickAble]" ng-click = "onClickNextStep($event)" ng-bind = "staticBasicModel.nextStep">
+		</div>
+		<div class="code_problem">
+			<div ng-show = "!reSendCodes">
+				<p ng-bind = "staticBasicModel.firstText"></p>
+				<p class="color-blue" ng-bind = "staticBasicModel.sendMessage" ng-click = "onClickSendMsg()"></p>
+				<p ng-bind = "staticBasicModel.lastText"></p>
+			</div>
+			<div ng-show = "reSendCodes">
+				重新获取验证码<span ng-bind = "reSendTime">(20)</span>
+			</div>
+		</div>
+		
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/codesController.js" ></script>
+	
+</html>

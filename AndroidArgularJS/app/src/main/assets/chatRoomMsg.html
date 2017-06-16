@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html ng-app = "chatRoomMsgApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>聊天消息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body ng-controller = "chatRoomMsgController" class="chat-room-msg-body" style="display: none;">
+		
+		<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;">
+				<img style="width: 48px;" class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>
+		
+		<div class="chat-msg-container">
+			<ul>
+				<li ng-repeat = "item in chatMsgList">
+					<div class="chat-msg-time"><p ng-bind = "item.msgTime"></p></div>
+					<div class="ub chat-msg-type-other" ng-show = "!item.showMyMsg">
+						<p class="ub-f1" ng-click = "toPersonalDetail()"><img style="margin-top: 10px;" ng-src = "{{item.icon}}"/></p>
+						<div class="left-arrow chat-room-arrow"></div>
+						<div class="ub-f4">
+							<p class="chat-other-name" ng-bind = "item.name"></p>
+							<p><span ng-bind = "item.msgContent"></span></p>
+						</div>
+						
+					</div>
+					<div class="ub chat-msg-type-my" ng-show = "item.showMyMsg">
+						<p class="ub-f4"><span ng-bind = "item.msgContent"></span></p>
+						<div class="right-arrow"></div>
+						<p class="ub-f1" ng-click = "toPersonalDetail()"><img ng-src = "{{item.icon}}"/></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+			<div class="chat-msg-bottom-container">
+			
+			<div class="chat-msg-input-container">
+				<div class="chat-audio-icon"><img ng-src = "{{audioIcon}}" ng-click = "onClickAudio()"/></div>
+				<div class="chat-input" ng-show = "showModel.showInput" ng-click = "onClickInputText()"><textarea ng-model = "inputMsg" ng-change = "inputChange(inputMsg)" rows="1" onkeyup="if (this.value.split('\n').length>1) this.rows=this.value.split('\n').length;"></textarea></div>
+				<div class="btn-click-to-speak" ng-show = "showModel.showClickToSpeakBtn" ng-touchstart = "onTouchToSpeak()" ng-touchend = "onTouchEndSpeak()">按住 说话</div>
+				<div class="chat-emoji-icon" ng-show = "showModel.showEmojiIcon" ng-click = "onClickEmo()"><img ng-src = "{{emojiIcon}}"/></div>
+				<div class="chat-more-icon" ng-show = "showModel.showMoreIcon" ng-click = "onClickMore()"><img ng-src = "{{moreIcon}}"/></div>
+				<div class="chat-send-div" ng-show = "showModel.showSendMsgBtn">
+					<div ng-click = "onClickSendMsg()" class="btn-send-msg">发送</div>
+				</div>
+			</div>
+			
+			<div class="chat-msg-emoji-container" ng-show = "showModel.showEmojiContainer">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<ul>
+								<li ng-repeat = "item in swiperEmojiList1" on-finish-render-filters><img ng-src = "{{item}}"/></li>
+								<li><img src="img/x.png"/></li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li ng-repeat = "item in swiperEmojiList2" on-finish-render-filters><img ng-src = "{{item}}"/></li>
+								<li><img src="img/x.png"/></li>
+							</ul>
+						</div>
+						<div class="swiper-slide">
+							<ul>
+								<li ng-repeat = "item in swiperEmojiList1" on-finish-render-filters><img ng-src = "{{item}}"/></li>
+								<li><img src="img/x.png"/></li>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-pagination chat-msg-swiper-point"></div>
+				</div>
+			</div>
+			
+			<div class="chat-msg-more-container" ng-show = "showModel.showMoreContainer">
+					<div class="chat-msg-more-div" ng-click = "onClickToAlbum()">
+						<img src="img/chat_album.png" />
+						<p>图片</p>
+					</div>
+					<div class="chat-msg-more-div" ng-click = "onClickToCamera()">
+						<img src="img/chat_camera.png" />
+						<p>拍摄</p>
+					</div>
+			</div>
+			
+		</div>
+		
+		<div class="chat-msg-cover-bg" ng-show = "showModel.showCoverBg" ng-click = "hideEmojiOrMoreContainer()"></div>
+		<div class="chat-msg-audio-container" ng-show = "showModel.showAudioContainer">
+			<div class="ub recording-img-tip">
+				<p class="ub-f1 recording-img-left"><img src="img/recording.png"/></p>
+				<p class="ub-f1 recording-img-right">
+					<img class="recording-img-5" src="img/recording5.png" ng-show = "showRecordingModel[4]"/>
+					<img class="recording-img-4" src="img/recording4.png" ng-show = "showRecordingModel[3]"/>
+					<img class="recording-img-3" src="img/recording3.png" ng-show = "showRecordingModel[2]"/>
+					<img class="recording-img-2" src="img/recording2.png" ng-show = "showRecordingModel[1]"/>
+					<img class="recording-img-1" src="img/recording1.png" ng-show = "showRecordingModel[0]"/>
+				</p>
+			</div>
+			<div class="recording-text-tip">手指松开 取消发送</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="controller/ngTouch.js" ></script>
+	<script type="text/javascript" src="plugin/swiper.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/chatBottomInputController.js" ></script>
+	<script type="text/javascript" src="controller/chatRoomMsgController.js" ></script>
+	<script>
+	var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        paginationClickable: true,
+	        observer : true,
+	        observeParents : true,
+	    });
+	</script>
+</html>

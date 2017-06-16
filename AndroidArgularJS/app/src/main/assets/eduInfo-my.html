@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app = "myEducationInfoApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>学历信息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "myEducationInfoController" class="edu-info-body" style="display: none;">
+		
+		<!--<header class="ub" ng-class = "headerModel.headerStyle">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" src="img/top_back.png"/>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1">学历信息</p>
+			</div>
+			<div class="ub-f1 right ub" >
+			</div>
+		</header>-->
+		<div class="personal-detail-container">
+			<div class="my-commonInfo" ng-repeat = "item in educationList">
+				<ul class="edu-ul">
+					<li class="ub">
+						<p class="ub-f1">入学日期：</p>
+						<p class="ub-f1" ng-bind = "item.startTime * 1000 | date : 'yyyy-MM-dd'"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">毕业日期：</p>
+						<p class="ub-f1" ng-bind = "item.endTime == null ? '至今' : item.endTime * 1000 | date : 'yyyy-MM-dd'"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">学校：</p>
+						<p class="ub-f1" ng-bind = "item.school"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">专业：</p>
+						<p class="ub-f1" ng-bind = "item.major"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">学历：</p>
+						<p class="ub-f1" ng-bind = "item.education"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">学位：</p>
+						<p class="ub-f1" ng-bind = "item.diploma"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">是否最高学位：</p>
+						<p class="ub-f1" ng-bind = "item.isHighDiploma == 1 ? '是' : '否'"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">是否最高学历：</p>
+						<p class="ub-f1" ng-bind = "item.isHighEducation == 1 ? '是' : '否'"></p>
+						<p class="ub-f1"></p>
+					</li>
+				</ul>
+			</div>
+			
+			<!--未找到-->
+			<div class="my-salary-check-no" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/myEducationInfoController.js" ></script>
+</html>

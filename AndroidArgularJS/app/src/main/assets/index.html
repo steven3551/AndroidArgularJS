@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app = "indexApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>信息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+		<link rel="stylesheet" href="css/my.css" />
+		<link rel="stylesheet" href="css/setting.css" />
+	</head>
+	<body ng-controller = "indexController" class="all-container" style="display: none;">
+		<!--<header class="ub index-header">
+			<div class="ub-f1 left ub">
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1">信息</p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;">
+				<img class="ub-f1" style="height: 28px;margin-top: 5px;" src="img/add.png" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="search-fixed-container">
+			<!--<div class="ub search"  ng-class = "showIndexSearchBtn" ng-click = "onClickSearchFriend()">
+				<p class="ub-f1 search-icon"><img ng-src = "{{staticBasicModel.searchIndexIcon}}"/></p>
+				<p class="ub-f1 search-tip" ng-bind = "staticBasicModel.searchIndexTip"></p>
+			</div>
+			<div class=" search"  ng-class = "showIndexSearchInput">
+				<p class="search-input"><input id="index-search-input" type="text" placeholder="搜索" ng-model = "searchIndexName" ng-change = "searchFriend(searchIndexName)"/></p>
+				<p class="delete-icon" ng-click = "onClickIndexDelete()" ng-show = "showModel.showIndexDeleteIcon"><img src = "img/x.png"/></p>
+			</div>-->
+			<div class="msg-list ">
+				<ul>
+					<li class="ub" ng-show = "showModel.showNotices" ng-click = "onClickToNoticeList()" id="index-notices">
+						<img class="ub-f1" ng-src = "{{notices.icon}}" />
+						<div class="ub-f3 msg-content">
+							<p ng-bind = "notices.title"></p>
+							<p ng-bind = "notices.content"></p>
+						</div>
+						<div class="ub-f1 msg-time-count">
+							<p ng-bind = "notices.publicTime"></p>
+							<p ng-bind = "notices.unreadMsgCount" class="messageCount" ng-show = "notices.showMsgCount"></p>
+						</div>
+					</li>
+					<li class="ub" ng-show = "showModel.showNews" ng-click = "onClickToNewsList()" id="index-news">
+						<img class="ub-f1" ng-src = "{{news.icon}}" />
+						<div class="ub-f3 msg-content">
+							<p ng-bind = "news.title"></p>
+							<p ng-bind = "news.content"></p>
+						</div>
+						<div class="ub-f1 msg-time-count">
+							<p ng-bind = "news.publicTime"></p>
+							<p ng-bind = "news.unreadMsgCount" class="messageCount" ng-show = "news.showMsgCount"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="index-container" id="indexInner">
+			
+			<div class="msg-list ">
+				<ul>
+					<li class="ub index-msg-long-click" data-id="{{item.userId}}" ng-repeat = "item in messageList" ng-click = "onClickSeeMsgDetail(item.type, item.userId, item.userName, item.userIcon, $event)" on-finish-render-filters> 
+					<!--	ng-touchstart = "onTouchStartToDelMsg(item.userId, $event)" ng-touchend = "onTouchEndToDelMsg(item.type, item.userId, item.userName, item.userIcon, $event)"-->
+						<img class="ub-f1" ng-src = "{{item.userIcon}}" />
+						<div class="ub-f3 msg-content">
+							<p ng-bind = "item.msgFrom"></p>
+							<p ng-bind = "item.lastMessage"></p>
+						</div>
+						<div class="ub-f1 msg-time-count" >
+							<p ng-bind = "item.time"></p>
+							<p ng-bind = "item.unreadMsgCount" class="messageCount" ng-show = "item.showMsgCount"></p>
+						</div>
+						<!--<div class="btn_del" ng-click="onClickDel(item.msgId, $event)">删除</div>-->
+					</li>
+				</ul>
+			</div>
+			
+			<!--未找到-->
+			<div class="index-check-no-search" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="controller/ngTouch.js" ></script>
+	<script type="text/javascript" src="plugin/swiper.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmDialog.js" ></script>
+	<script type="text/javascript" src="popUpModal/confirmTip.js" ></script>
+	<script type="text/javascript" src="popUpModal/codesDialog.js" ></script>
+	
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="plugin/H5lock.js"></script>
+	<script type="text/javascript" src="controller/indexController.js" ></script>
+</html>

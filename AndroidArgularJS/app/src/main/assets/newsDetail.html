@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app = "newsDetailApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>企业新闻</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body ng-controller = "newsDetailController" class="news-detail-body" style="display: none;">
+		
+		<!--<header class="ub" >
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<p class="ub-f1 chat-people-count" ng-bind = "chatPeopleNum"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="news-detail-container">
+		<!--<p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">圣诞节是西方传过来的节日，但是我们也渐渐的有了很多关于圣诞节的活动，下面是小编整理的2016年圣诞节活动通知，欢迎大家参考!</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;"><span style="font-weight:800;"> 2016年圣诞节活动通知一：</span></p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">全校师生：</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">为确保全校师生度过一个安全、祥和的圣诞节日，根据市政府12月15日会议精神和市教体局相关文件精神，现就我校“圣诞节”期间安全稳定有关事宜通知如下：</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">一、加强宣传，理性思考。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">班主任及科任老师要积极主动引导学生正确认识圣诞节日。使之明确圣诞节是是基督教徒纪念耶稣诞生的日子，属于宗教性节日;同时，因其在西方国家影响较大，成为这些国家一年中最盛大的节日，可以和新年相提并论，类似我国的春节。作为以“具有全球意识、以民族复兴为己任的现代人”为成长目标的绵外学子，对西方文化要了解，但更要认识传统节日作为民族文化载体的深刻意义。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">二、精心组织，文明祈福。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">各学部各班应组织学生了解圣诞节相关知识，用唱圣诞歌曲、写贺卡、表演节目等方式文明过圣诞节。严禁使用各种物品相互击打及使用各种喷雾产品。各学部自行安排圣诞主题班会时间，班主任需到场参与，认真履行班级安全第一责任人的义务。24日当天请班主任认真做好走读学生及请假学生的登记工作，鼓励学生在节假期间与家人欢聚，禁止前往城区交通管制区域。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">三、关注身心，平安过节。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">临近期末，属各种安全事故高发时期，请班主任时刻关注学生身心健康并提醒学生注意财务及人身安全。若我校学生以个人名义邀请学校外教参加圣诞节相关活动，或者接收外教个人邀请参加其举行的圣诞活动，均需得到学生家长的同意，并由家长陪同全程参与。不允许我校学生在没有家长同意并陪同的情况下参加外教以个人名义组织的各种圣诞活动。节后及时调整关注重点，做好期末复习应考工作。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">校团委、学生会、少先队大队部</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;"><img src="http://120.26.82.158/uploads/photo/1481980728_58553b38e5589.png" data-ke-src="http://120.26.82.158/uploads/photo/1481980728_58553b38e5589.png" style="width:100%"><br></p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;"><span style="font-weight:800;"> 2016年圣诞节活动通知二：</span></p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">12月23日上午9点在幼儿园活动中心进行中班组迎圣诞联欢会活动，具体要求如下：</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">1、幼儿要求：</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">入园时间：早上8点以前入园，8点进餐，8点20回教室整理服装。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">妆容：在家里化淡妆，粉底、眉毛、胭脂。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">服饰：穿黄绿色校服入园(由于天气较冷可把棉袄套在外面，方便穿脱)另将白毛衣、蓝马甲、蓝格子长裤、黑皮鞋带着更换。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">2、家长要求：</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">入园时间：8：30来园，在本班召开家长会。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">每个家庭可派1-2名家长参加活动，留一位家长开家长会，另一位家长可提前去活动中心。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">参加跳舞的爸爸妈妈要求化妆，家长会结束后更换演出服。</p><p style="font-size:14px;color:#413C3C;font-family:SimSun;background-color:#FFFFEF;">望大家积极配合，遵守时间，尤其是孩子入园不能迟到，否则影响进餐。切记!!!</p>-->
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/newsDetailController.js" ></script>
+</html>

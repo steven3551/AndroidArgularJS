@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app = "myRecordInfoApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>任职信息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "myRecordInfoController" class="record-info-body" style="display: none;">
+		
+		<!--<header class="ub" ng-class = "headerModel.headerStyle">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" src="img/top_back.png"/>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1">履历信息</p>
+			</div>
+			<div class="ub-f1 right ub" >
+			</div>
+		</header>-->
+		<div class="personal-detail-container " >
+			<div class="my-commonInfo" ng-repeat = "item in recordList">
+				<ul>
+					<li class="ub">
+						<p class="ub-f1">开始时间：</p>
+						<p class="ub-f1" ng-bind = "item.startTime * 1000 | date : 'yyyy-MM-dd'"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">结束时间：</p>
+						<p class="ub-f1" ng-bind = "item.endTime == null ? '至今' : item.endTime * 1000 | date : 'yyyy-MM-dd'"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub" style="height: auto;">
+						<p class="ub-f1">公司：</p>
+						<p class="ub-f1" ng-bind = "item.company"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">所在部门：</p>
+						<p class="ub-f1" ng-bind = "item.section"></p>
+						<p class="ub-f1"></p>
+					</li>
+					<li class="ub">
+						<p class="ub-f1">岗位：</p>
+						<p class="ub-f1" ng-bind = "item.job"></p>
+						<p class="ub-f1"></p>
+					</li>
+				</ul>
+			</div>
+			
+			<!--未找到-->
+			<div class="my-salary-check-no" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/myRecordInfoController.js" ></script>
+</html>

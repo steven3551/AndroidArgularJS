@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app = "resetPwd1App">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>信息</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/setting.css" />
+	</head>
+	<body ng-controller = "resetPwd1Controller" class="reset-pwd1-body" style="display: none">
+		
+		<!--<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<div class="reset-pwd1-container">
+			<ul>
+				<li class="ub">
+					<p class="ub-f1" ng-bind = "staticBasicModel.oldPwdTitle"></p>
+					<p class="ub-f3">
+						<input type="password" placeholder="{{staticBasicModel.oldPwdPlaceholder}}" ng-model = "resetPwd1Model.oldPwd" ng-change = "onChangeOldPwd(resetPwd1Model.oldPwd)" maxlength="20" />
+					</p>
+				</li>
+				<li class="ub">
+					<p class="ub-f1" ng-bind = "staticBasicModel.newPwdTitle"></p>
+					<p class="ub-f3">
+						<input type="password" placeholder="{{staticBasicModel.newPwdPlaceholder}}" ng-model = "resetPwd1Model.newPwd" ng-change = "onChangeNewPwd(resetPwd1Model.newPwd)" maxlength="20"/>
+					</p>
+				</li>
+				<li class="ub">
+					<p class="ub-f1" ng-bind = "staticBasicModel.confirmPwdTitle"></p>
+					<p class="ub-f3">
+						<input type="password" placeholder="{{staticBasicModel.confirmPwdPlaceholder}}" ng-model = "resetPwd1Model.confirmPwd" ng-change = "onChangeConfirmPwd(resetPwd1Model.confirmPwd)" maxlength="20"/>
+					</p>
+				</li>
+			</ul>
+			
+			<p class="reset-pwd-codes" ng-bind = "staticBasicModel.codesModPwd" ng-click = "onClickCodesMod()"></p>
+			
+			<p class="reset-pwd-confirm" ng-class = "{true : 'click-able', flase : ''}[clickAble]" ng-bind = "staticBasicModel.btnConfirmText" ng-click = "onClickConfirm()"></p>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/resetPwd1Controller.js" ></script>
+</html>

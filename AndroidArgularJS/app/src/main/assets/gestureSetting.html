@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app = "gestureSettingApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/gesturePwd.css" />
+		 <!--<style type="text/css">
+	        .title {
+	            color: #22C3AA;
+	        }
+	    </style>-->
+	</head>
+	<body ng-controller = "gestureSettingController"  class="gesture-setting-body" style="display: none;">
+		
+		<!--<header class="ub">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" src = "img/top_back.png"/>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "gestureTitle"></p>
+			</div>
+			<div class="ub-f1 right ub" >
+			</div>
+		</header>-->
+		<div class="gesture-logo">
+			<div class="gesture-logo-img" style="background-image: url({{myIcon}});"></div>
+			<!--<img ng-src="{{myIcon}}" />-->
+			<div class="ub gesture-show-phone">
+				<p class="ub-f1">手机号码：</p>
+				<p class="ub-f1" ng-bind = "phoneNum"></p>
+			</div>
+			<div ng-bind = "gestureTip" ng-class = "gestureClass"></div>
+		</div>
+		<div class="gesture-container">
+			<h4 id="title" class="title" style="display: none;">绘制解锁图案</h4>
+			<a id="updatePassword" style="position: absolute;right: 5px;top: 5px;color:#fff;font-size: 10px;display:none;">重置密码</a>
+			<canvas id="canvas" width= "300" height="300"></canvas>
+		</div>
+		<div class="setting-gesture-footer" ng-click = "onClickToIndex()" ng-bind = "gestureFooterName">暂不设置</div>
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="controller/ngTouch.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="plugin/H5lock.js"></script>
+	<script type="text/javascript" src="controller/gestureSettingController.js" ></script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app = "salaryYearApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>年度汇总</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "salaryYearController" class="salary-year-body" style="display: none;">
+		
+		<!--<header class="ub" ng-class = "headerModel.headerStyle">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+			</div>
+			<div class="ub-f1 head-center-title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+			</div>
+			<div class="ub-f1 right ub" style="text-align: -webkit-right;" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle"></p>
+				<img class="ub-f1" style="height: 30px;margin-top: 5px;" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		<div class="my-salaryYearInfo">
+			<div class="my-salary-year" ng-repeat = "item in salaryYearModel.salaryYearList">
+				<div class="salary-year-head" ng-click="salaryDetailShow(item.salaryYearId)">
+					<p ng-bind="item.salaryYear"></p>
+					<p>实发合计：</p>
+					<p style="color: #41B6D5;" ng-bind="item.realSum"></p>
+					<p><img ng-src="{{item.salaryMonthArrow}}" /></p>
+				</div>
+				<div ng-show="item.salaryMonthDetail">
+					<div class="salary-year-month" ng-repeat = "item2 in item.salaryMonth">
+						<p ng-bind="item2.month"></p>
+						<p style="color: #41B6D5;" ng-bind="item2.salary"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/mySalaryYearController.js"></script>
+	
+</html>

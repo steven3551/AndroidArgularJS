@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app = "startChatRoomApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>发起群聊</title>
+		<link rel="stylesheet" href="css/m_base.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/contact.css" />
+		<link rel="stylesheet" href="css/popUp.css" />
+		<link rel="stylesheet" href="css/my.css" />
+	</head>
+	<body ng-controller = "startChatRoomController" class="start-chat-room-body" style="display: none;">
+		
+		<!--<header class="ub" ng-class = "headerModel.headerStyle">
+			<div class="ub-f1 left ub" ng-click = "back()">
+				<img class="ub-f1" ng-src = "{{headerModel.leftIcon}}" ng-show = "headerModel.showHeaderModel.showLeftIcon"/>
+				<p class="ub-f1" style="margin-left: 5px;" ng-bind = "headerModel.leftTitle" ng-show = "headerModel.showHeaderModel.showLeftTitle"></p>
+			</div>
+			<div class="ub-f1 title ub" >
+				<p class="ub-f1" ng-bind = "headerModel.midTitle" ng-show = "headerModel.showHeaderModel.showMidTitle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.midIcon}}" ng-show = "headerModel.showHeaderModel.showMidIcon" ng-click = "midIconClick()"/>
+			</div>
+			<div class="ub-f1 right ub" >
+				<p class="ub-f1" ng-bind = "headerModel.rightTitle" ng-show = "headerModel.showHeaderModel.showRightTitle" ng-click = "rightPartClick()" ng-class = "rightTopStyle"></p>
+				<img class="ub-f1" ng-src = "{{headerModel.rightIcon}}" ng-show = "headerModel.showHeaderModel.showRightIcon" ng-click = "rightPartClick()"/>
+			</div>
+		</header>-->
+		
+		<!--<div class="search-fixed-container">
+			<div class="ub search" ng-click = "onClickSearch()" ng-show = "!showModel.showSearchInput">
+				<p class="ub-f1 search-icon"><img ng-src = "{{staticBasicModel.searchIcon}}" src="img/search.png"/></p>
+				<p class="ub-f1 search-tip" ng-bind = "staticBasicModel.searchTip">搜索</p>
+			</div>
+			<div class=" search" ng-show = "showModel.showSearchInput">
+				<p class="search-input"><input id="start-chat-room" type="text" placeholder="搜索" ng-model = "searchName" ng-change = "searchFriend(searchName)"/></p>
+				<p class="delete-icon" ng-click = "onClickDelete()" ng-show = "showModel.showDeleteIcon"><img src = "img/x.png"/></p>
+			</div>
+		</div>-->
+		
+		<div class="add-friend-container">
+			
+			<div class="msg-list">
+				<!--通讯录  form-->
+				<ul>
+					<div ng-repeat = "item in addFriendList">
+						<p class="contact-nav-title" ng-bind = "item.headLetter" id="{{item.headLetter}}"></p>
+						<li class="ub" ng-repeat = "item2 in item.friendList" ng-click = "onClickSelected(item.headLetter, $index)">
+							<img class="ub-f1 selected-people-icon" ng-src="{{item2.icon_sel}}" ng-show = "item2.isSelected"/>
+							<img class="ub-f1 selected-people-icon" ng-src="{{item2.noicon}}" ng-show = "!item2.isSelected" />
+							<img class="ub-f1" ng-src="{{item2.icon}}"/>
+							<div class="ub-f3 contact-title">
+								<p class="contact-people" ng-bind = "item2.name" ></p>
+							</div>
+						</li>
+					</div>
+				</ul>
+			</div>
+			
+			<!--未找到-->
+			<div class="index-check-no-search" ng-show = "emptySearch">
+				<img src="img/searchEmpty.png" />
+			</div>
+		</div>
+		
+		<div class="popUp-bg" ng-show = "showModel.showCreateChatRoom" ng-click = "onClickHideCreateChatRoom()"></div>
+		<div class="popUp-container2" ng-show = "showModel.showCreateChatRoom">
+			<div class="popUp-top">创建群组</div>
+			<input class="popUp-nickname" type="text" placeholder="请输入群组名称" ng-model = "inputChatRoomName" maxlength="12"/>
+			<!--<input class="popUp-nickname" type="tel" placeholder="请输入群组人数(<2000)" ng-model = "inputChatRoomMemberNum" maxlength="4"/>-->
+			<textarea class="popUp-chat-room-des" placeholder="请输入群组描述(非必填)" ng-model = "inputChatRoomDes"></textarea>
+			<div class="popUp-confirm-codes-container">
+				<a class="popUp-confirm-codes-cancel" ng-click = "onClickHideCreateChatRoom()">取消</a>
+				<a class="popUp-confirm-codes-sure" ng-click = "onClickCreateChatRoom()">确定</a>
+			</div>
+		</div>
+		
+		<div class="nav-letter">
+			<ul>
+				<li ng-repeat = "item in addFriendList" >
+					<a href="{{item.anchorId}}"><p ng-bind = "item.headLetter"></p></a>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="system/zepto.min.js" ></script>
+	<script type="text/javascript" src="plugin/fastclick.js" ></script>
+	<script type="text/javascript" src="system/angular.min.js" ></script>
+	<script type="text/javascript" src="const/config.js" ></script>
+	<script type="text/javascript" src="base/mnwebmain.js" ></script>
+	<script type="text/javascript" src="common/common.js" ></script>
+	<script type="text/javascript" src="common/jqHttpRequest.js" ></script>
+	<script type="text/javascript" src="controller/headerController.js" ></script>
+	<script type="text/javascript" src="controller/startChatRoomController.js"></script>
+	
+</html>
